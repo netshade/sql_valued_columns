@@ -5,12 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "sql_valued_columns"
-    gem.summary = %Q{Specify values to be inserted into the database as the result of SQL functions}
+    gem.summary = %Q{Specify values to be inserted into the database as the result of specific SQL functions}
     gem.email = "netshade@gmail.com"
     gem.homepage = "http://github.com/netshade/sql_valued_columns"
     gem.authors = ["netshade"]
     gem.add_dependency("activerecord", ">= 2.3.2") 
     gem.files.include "rails/**"
+    gem.description = File.read("README.rdoc")
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
