@@ -56,7 +56,7 @@ module SqlValuedColumns
                 when String
                   str = a
                   if a =~ /\#\{[^\}]+\}/
-                    str = val('"' + str + '"')
+                    str = eval('"' + str + '"')
                   end
                   connection.quote(str)
                 else
@@ -65,7 +65,7 @@ module SqlValuedColumns
               end
               h[name] = "#{function}(#{fmt_args.join(",")})"
             else
-              h[name] = function
+              h[name] = eval('"' + function + '"')
             end
           end
       end
