@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sql_valued_columns}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["netshade"]
@@ -71,6 +71,7 @@ Copyright (c) 2009 Chris Zelenak. See LICENSE for details.
      "lib/sql_valued_columns.rb",
      "rails/bootstrap.rb",
      "rails/bootstrap.rb",
+     "sql_valued_columns.gemspec",
      "test/sql_valued_columns_test.rb",
      "test/test_helper.rb"
   ]
