@@ -33,7 +33,8 @@ module SqlValuedColumns
     end
 
     def sql_columns
-      @sql_columns ||= { }
+      base_columns = (superclass.respond_to?(:sql_columns)) ? superclass.sql_columns : { }
+      base_columns.merge(@sql_columns ||= { })
     end
     
   end
@@ -41,7 +42,7 @@ module SqlValuedColumns
   module InstanceMethods
     
     def attributes_with_quotes_with_sqlcolumns(include_primary_key = true, include_readonly_attributes = true, attribute_names = @attributes.keys)
-      h = self.attributes_with_quotes_without_sqlcolumns(include_primary_key, include_readonly_attributes, attribute_names)
+      h = self.send(:attributes_with_quotes_without_sqlcolumns, include_primary_key, include_readonly_attributes, attribute_names)
       names = h.keys
       names.each do |name|
           if self.class.sql_columns[name]
